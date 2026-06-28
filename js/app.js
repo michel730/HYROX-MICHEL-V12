@@ -1,4 +1,4 @@
-const VERSION = "V12.0 STABLE";
+const VERSION = "V12.1 NAV ACTIONS";
 const EXERCISES = [
   ["dev-convergent","Développé convergent","4 x 8-10","Pectoraux • triceps","force"],
   ["dev-incline","Développé incliné machine","4 x 8-10","Haut des pectoraux","force"],
@@ -99,7 +99,6 @@ function exercise(){
   const cardio = ex.type === "cardio";
   html(`<section class="exercise">
     <div class="exercise-title"><div><h1>${ex.name}</h1><p>${ex.muscles}</p></div><div class="badge">${ex.target}</div></div>
-    <button class="secondary danger" onclick="deleteExercise()">Supprimer cet exercice</button>
     <div class="imgbox"><div><strong>Machine / mouvement</strong>${ex.name}<br><span class="small">Remplacer par image : assets/machines/${ex.id}.png</span></div></div>
     <div class="imgbox"><div><strong>Anatomie</strong>${ex.muscles}<br><span class="small">Remplacer par image : assets/anatomie/${ex.id}.png</span></div></div>
     ${cardio ? timerBlock() : statsBlock(ex)}
@@ -113,8 +112,9 @@ function exercise(){
     <button onclick="prev()">← Préc.</button>
     <button onclick="exercise()">Modifier</button>
     <button onclick="next()">Suivant →</button>
-    <button onclick="home()">Quitter</button>
-  </div>`);
+    <button class="danger" onclick="deleteExercise()">Supprimer</button>
+  </div>
+  <button class="floatingQuit" onclick="home()">Quitter</button>`);
 }
 
 function row(ex,i,cardio){

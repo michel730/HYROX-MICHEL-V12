@@ -33,3 +33,29 @@ input[type=checkbox]{width:28px;height:28px;margin:auto}
 .addgrid{display:grid;gap:8px}
 .small{font-size:14px;color:var(--muted)}
 @media(min-width:700px){.addgrid{grid-template-columns:2fr 1fr 1fr}}
+
+/* V12.1 — action supprimer déplacée en bas */
+.nav .danger{
+  background:#35101b!important;
+  color:var(--danger)!important;
+  border-color:#7f1d1d!important;
+}
+.floatingQuit{
+  position:fixed;
+  right:10px;
+  top:calc(env(safe-area-inset-top) + 10px);
+  z-index:20;
+  border:1px solid var(--line);
+  background:#102743;
+  color:var(--txt);
+  border-radius:999px;
+  padding:9px 12px;
+  font-size:12px;
+  font-weight:900;
+}
+.exercise{
+  padding-top:18px;
+}
+@media(max-width:720px){
+  .nav button{font-size:11px;padding:12px 3px}
+}
