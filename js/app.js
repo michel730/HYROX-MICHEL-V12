@@ -1,4 +1,4 @@
-const VERSION = "HYROX MICHEL — V13.1 VISUELS";
+const VERSION = "HYROX MICHEL — V13.2 VISUELS NETTOYÉS";
 const EXERCISES = [["dev-convergent", "Développé convergent", "4 × 8-10", "Pectoraux • triceps", "force"], ["dev-incline", "Développé incliné machine", "4 × 8-10", "Haut pectoraux • épaules", "force"], ["pec-deck", "Pec Deck / Butterfly", "4 × 10-12", "Pectoraux • deltoïdes", "force"], ["crunch", "Crunch machine", "4 × 12-15", "Grand droit abdominal", "force"], ["obliques", "Rotation obliques", "4 × 12-15", "Obliques • gainage", "force"], ["skierg", "SkiErg", "8-10 min", "Dos • abdos • cardio", "cardio"], ["rameur", "Rameur", "10 min", "Jambes • dos • cardio", "cardio"], ["tapis", "Tapis / Course", "20 min", "Cardio • jambes", "cardio"], ["tirage-vertical", "Tirage vertical", "4 × 8-10", "Dos • biceps", "force"], ["rowing-assis", "Rowing assis", "4 × 10", "Dos • rhomboïdes", "force"], ["leg-extension", "Leg Extension", "4 × 10-12", "Quadriceps", "force"], ["leg-curl", "Leg Curl", "4 × 10-12", "Ischios", "force"],["wall-ball","Wall Ball","3 × 15-20","Cardio • jambes • épaules","force"]
 ,["fentes","Fentes marchées","3 × 20","Jambes • fessiers","force"]
 ];

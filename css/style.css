@@ -387,3 +387,22 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
     font-size:23px;
   }
 }
+
+/* V13.2 — visuels nettoyés sans éléments inutiles */
+.v13Premium{
+  border:1px solid rgba(57,199,255,.44);
+  background:#06111f;
+}
+.v13Premium img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.premiumHero,
+.singlePremium,
+.proGrid,
+.cleanPremium,
+.stats{
+  display:none!important;
+}

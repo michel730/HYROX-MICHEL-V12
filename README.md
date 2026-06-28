@@ -1,13 +1,13 @@
-# HYROX-Michel — V13.1 Visuels tous exercices
+# HYROX-Michel — V13.2 Visuels nettoyés
 
 Mise à jour :
-- même base graphique premium appliquée aux exercices ;
-- visuels intégrés dans `assets/premium/` ;
-- page Exercice V13 conservée ;
+- visuels nettoyés sur tous les exercices ;
+- suppression des éléments inutiles dans les images ;
+- même modèle graphique pour tous ;
 - un seul tableau de séries actif ;
 - aucune page supprimée.
 
-Visuels créés :
+Visuels inclus :
 - Développé convergent
 - Butterfly / Pec Deck
 - Crunch machine
@@ -20,9 +20,9 @@ Visuels créés :
 - Rameur
 
 Aliases provisoires :
-- Développé incliné utilise le visuel développé convergent
-- Tapis utilise un visuel cardio
-- Leg extension / leg curl utilisent le visuel fentes
+- Développé incliné utilise développé convergent
+- Tapis utilise SkiErg
+- Leg extension / Leg curl utilisent fentes
 
 Déploiement :
 Uploader tout le contenu dans le dépôt officiel.
