@@ -1,4 +1,4 @@
-const VERSION = "HYROX MICHEL — STABLE 1.2";
+const VERSION = "HYROX MICHEL — STABLE 1.3 PREMIUM";
 const EXERCISES = [["dev-convergent", "Développé convergent", "4 × 8-10", "Pectoraux • triceps", "force"], ["dev-incline", "Développé incliné machine", "4 × 8-10", "Haut pectoraux • épaules", "force"], ["pec-deck", "Pec Deck / Butterfly", "4 × 10-12", "Pectoraux • deltoïdes", "force"], ["crunch", "Crunch machine", "4 × 12-15", "Grand droit abdominal", "force"], ["obliques", "Rotation obliques", "4 × 12-15", "Obliques • gainage", "force"], ["skierg", "SkiErg", "8-10 min", "Dos • abdos • cardio", "cardio"], ["rameur", "Rameur", "10 min", "Jambes • dos • cardio", "cardio"], ["tapis", "Tapis / Course", "20 min", "Cardio • jambes", "cardio"], ["tirage-vertical", "Tirage vertical", "4 × 8-10", "Dos • biceps", "force"], ["rowing-assis", "Rowing assis", "4 × 10", "Dos • rhomboïdes", "force"], ["leg-extension", "Leg Extension", "4 × 10-12", "Quadriceps", "force"], ["leg-curl", "Leg Curl", "4 × 10-12", "Ischios", "force"]];
 const DEFAULT = ["dev-convergent","dev-incline","pec-deck","crunch","obliques","skierg"];
 const CHECKLIST = ["Gourde remplie","Électrolytes","AirPods","Serviette","Chaussures / tennis","Apple Watch chargée","Téléphone chargé","Clés"];
@@ -64,12 +64,16 @@ function exercise(){
       <div class="badge">${ex.target}</div>
     </div>
 
+    <div class="premiumHero">
+      <img src="assets/premium/${ex.id}-full.png" alt="Fiche premium ${ex.name}" onerror="this.style.display='none'">
+    </div>
+
     <div class="proGrid">
-      <details class="imgbox proImg" open>
-        <summary>Machine</summary>
+      <details class="imgbox proImg">
+        <summary>Machine / mouvement</summary>
         <img src="assets/machines/${ex.id}.png" alt="Machine ${ex.name}">
       </details>
-      <details class="imgbox proImg" open>
+      <details class="imgbox proImg">
         <summary>Anatomie</summary>
         <img src="assets/anatomie/${ex.id}.png" alt="Anatomie ${ex.name}">
       </details>
@@ -87,7 +91,7 @@ function exercise(){
       <summary>Infos & conseils</summary>
       <p><b>Objectif :</b> ${ex.target}</p>
       <p><b>Muscles :</b> ${ex.muscles}</p>
-      <p class="small">Réglages, erreurs fréquentes et vidéo seront ajoutés dans cette fiche sans changer la page séance.</p>
+      <p class="small">Réglages, erreurs fréquentes et vidéo seront ajoutés ici sans modifier les autres pages.</p>
     </details>
   </section>
   <div class="nav nav5">
