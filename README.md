@@ -1,11 +1,26 @@
-# HYROX-Michel — Stable 1.4.1 Fiche sans doublon
+# HYROX-Michel — V13 Fondation
 
-Correction :
-- le visuel premium ne contient plus le bas de fiche intégré ;
-- suppression du doublon séries / stats / infos dans l'image ;
-- la vraie zone séries de l'application reste la seule zone active ;
-- aucune page supprimée.
+Version refondue de la page Exercice.
+
+Conservé :
+- Accueil
+- Objectifs
+- Scores
+- Historique
+- Bilan hebdo
+- Check-list
+- Ajout/suppression exercice
+- Séries
+- Chrono cardio
+
+Correction majeure :
+- un seul visuel premium : Machine + Anatomie ;
+- plus aucun doublon dans l'image ;
+- un seul tableau de séries actif ;
+- une seule navigation ;
+- un seul menu Actions ;
+- accordéons Infos / Réglages / Erreurs / Vidéo.
 
 Déploiement :
-Uploader tout le contenu dans HYROX-MICHEL-V12.
+Uploader tout le contenu dans le dépôt HYROX-MICHEL-V12 ou dépôt officiel.
 GitHub Pages : main / root.

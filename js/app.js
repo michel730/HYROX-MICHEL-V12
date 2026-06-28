@@ -1,4 +1,4 @@
-const VERSION = "HYROX MICHEL — STABLE 1.4.1";
+const VERSION = "HYROX MICHEL — V13 FONDATION";
 const EXERCISES = [["dev-convergent", "Développé convergent", "4 × 8-10", "Pectoraux • triceps", "force"], ["dev-incline", "Développé incliné machine", "4 × 8-10", "Haut pectoraux • épaules", "force"], ["pec-deck", "Pec Deck / Butterfly", "4 × 10-12", "Pectoraux • deltoïdes", "force"], ["crunch", "Crunch machine", "4 × 12-15", "Grand droit abdominal", "force"], ["obliques", "Rotation obliques", "4 × 12-15", "Obliques • gainage", "force"], ["skierg", "SkiErg", "8-10 min", "Dos • abdos • cardio", "cardio"], ["rameur", "Rameur", "10 min", "Jambes • dos • cardio", "cardio"], ["tapis", "Tapis / Course", "20 min", "Cardio • jambes", "cardio"], ["tirage-vertical", "Tirage vertical", "4 × 8-10", "Dos • biceps", "force"], ["rowing-assis", "Rowing assis", "4 × 10", "Dos • rhomboïdes", "force"], ["leg-extension", "Leg Extension", "4 × 10-12", "Quadriceps", "force"], ["leg-curl", "Leg Curl", "4 × 10-12", "Ischios", "force"]];
 const DEFAULT = ["dev-convergent","dev-incline","pec-deck","crunch","obliques","skierg"];
 const CHECKLIST = ["Gourde remplie","Électrolytes","AirPods","Serviette","Chaussures / tennis","Apple Watch chargée","Téléphone chargé","Clés"];
@@ -57,50 +57,57 @@ function addExercise(){
 function startSession(){ active=0; exercise(); }
 
 function exercise(){
-  const ex=state.session[active]; if(!ex) return home(); const cardio=ex.type==="cardio";
-  html(`<section class="exercise cleanExercise">
-    <div class="cleanTop">
-      <button class="backBtn" onclick="home()">‹ Retour</button>
-      <button class="dotsBtn" onclick="toggleActions()">⋮</button>
+  const ex=state.session[active]; 
+  if(!ex) return home(); 
+  const cardio=ex.type==="cardio";
+
+  html(`<section class="exercise v13Exercise">
+    <div class="v13Header">
+      <button class="v13Back" onclick="home()">‹ Retour</button>
+      <button class="v13Dots" onclick="toggleActions()">⋮</button>
     </div>
 
-    <div class="cleanTitle">
+    <div class="v13Title">
       <h1>${ex.name}</h1>
       <p>${ex.muscles}</p>
     </div>
 
-    <div class="cleanPremium">
-      <img src="assets/premium/${ex.id}-full.png" alt="Fiche premium ${ex.name}" onerror="this.style.display='none'">
+    <div class="v13Premium">
+      <img src="assets/premium/${ex.id}-full.png" alt="Fiche ${ex.name}" onerror="this.style.display='none'">
     </div>
 
     ${cardio?timerBlock():""}
 
-    <div class="series cleanSeries">
+    <div class="v13Series">
       <h2>Séries</h2>
-      <div class="head"><span>Série</span><span>${cardio?"Temps":"Poids"}</span><span>${cardio?"RPE/m":"Reps"}</span><span>OK</span></div>
+      <div class="head">
+        <span>Série</span>
+        <span>${cardio?"Temps":"Poids"}</span>
+        <span>${cardio?"RPE/m":"Reps"}</span>
+        <span>OK</span>
+      </div>
       ${ex.sets.map((s,i)=>row(ex,i,cardio)).join("")}
-      <button class="bigbtn compactBtn" onclick="addSet()">+ Ajouter une série</button>
+      <button class="bigbtn v13Add" onclick="addSet()">+ Ajouter une série</button>
     </div>
 
-    <details class="cleanFold">
+    <details class="v13Fold">
       <summary>Infos & conseils</summary>
-      <p>Garde le dos bien plaqué contre le dossier.</p>
-      <p>Contrôle le mouvement et marque la contraction en fin de poussée.</p>
+      <p>Dos stable, mouvement contrôlé, contraction volontaire en fin de mouvement.</p>
     </details>
 
-    <details class="cleanFold">
+    <details class="v13Fold">
       <summary>Réglages machine</summary>
-      <p>Poignées au niveau du milieu des pectoraux. Coudes légèrement fléchis.</p>
+      <p>Réglage à adapter à la morphologie. Position stable avant de démarrer la série.</p>
     </details>
 
-    <details class="cleanFold">
+    <details class="v13Fold">
       <summary>Erreurs fréquentes</summary>
-      <p>Ne verrouille pas les coudes. Ne cambre pas exagérément le dos.</p>
+      <p>Éviter les compensations, les mouvements brusques et les amplitudes non contrôlées.</p>
     </details>
 
-    <details class="cleanFold">
+    <details class="v13Fold">
       <summary>Vidéo</summary>
-      <p class="small">Vidéo à ajouter plus tard.</p>
+      <p class="small">Vidéo à intégrer plus tard.</p>
     </details>
 
     <div id="actionsMenu" class="actionsMenu">
@@ -110,7 +117,7 @@ function exercise(){
     </div>
   </section>
 
-  <div class="nav nav5">
+  <div class="nav nav5 v13Nav">
     <button onclick="home()">☰ Menu</button>
     <button onclick="prev()">← Préc.</button>
     <button disabled>${active+1} / ${state.session.length}<br>Exercice</button>
