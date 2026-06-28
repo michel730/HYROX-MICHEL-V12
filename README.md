@@ -1,11 +1,12 @@
-# HYROX-Michel — Stable 1.3.3 Premium Large
+# HYROX-Michel — Stable 1.4 Page Exercice Clean
 
-Correction demandée :
-- suppression des compteurs sous l'image ;
-- suppression du badge objectif en haut de la fiche exercice ;
-- visuel premium agrandi sur iPhone ;
-- séries directement sous le visuel ;
-- aucune page ni fonctionnalité retirée.
+Correction :
+- suppression du doublon de séries ;
+- un seul visuel premium ;
+- un seul tableau de séries, connecté aux données ;
+- un seul bloc Infos & conseils ;
+- Actions déplacées dans un menu ;
+- aucune page supprimée.
 
 Déploiement :
 Uploader tout le contenu dans HYROX-MICHEL-V12.

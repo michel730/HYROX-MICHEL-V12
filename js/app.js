@@ -1,4 +1,4 @@
-const VERSION = "HYROX MICHEL — STABLE 1.3.3 LARGE";
+const VERSION = "HYROX MICHEL — STABLE 1.4 CLEAN";
 const EXERCISES = [["dev-convergent", "Développé convergent", "4 × 8-10", "Pectoraux • triceps", "force"], ["dev-incline", "Développé incliné machine", "4 × 8-10", "Haut pectoraux • épaules", "force"], ["pec-deck", "Pec Deck / Butterfly", "4 × 10-12", "Pectoraux • deltoïdes", "force"], ["crunch", "Crunch machine", "4 × 12-15", "Grand droit abdominal", "force"], ["obliques", "Rotation obliques", "4 × 12-15", "Obliques • gainage", "force"], ["skierg", "SkiErg", "8-10 min", "Dos • abdos • cardio", "cardio"], ["rameur", "Rameur", "10 min", "Jambes • dos • cardio", "cardio"], ["tapis", "Tapis / Course", "20 min", "Cardio • jambes", "cardio"], ["tirage-vertical", "Tirage vertical", "4 × 8-10", "Dos • biceps", "force"], ["rowing-assis", "Rowing assis", "4 × 10", "Dos • rhomboïdes", "force"], ["leg-extension", "Leg Extension", "4 × 10-12", "Quadriceps", "force"], ["leg-curl", "Leg Curl", "4 × 10-12", "Ischios", "force"]];
 const DEFAULT = ["dev-convergent","dev-incline","pec-deck","crunch","obliques","skierg"];
 const CHECKLIST = ["Gourde remplie","Électrolytes","AirPods","Serviette","Chaussures / tennis","Apple Watch chargée","Téléphone chargé","Clés"];
@@ -58,38 +58,70 @@ function startSession(){ active=0; exercise(); }
 
 function exercise(){
   const ex=state.session[active]; if(!ex) return home(); const cardio=ex.type==="cardio";
-  html(`<section class="exercise proExercise">
-    <div class="exercise-title proTitle">
-      <div><h1>${ex.name}</h1><p>${ex.muscles}</p></div>
+  html(`<section class="exercise cleanExercise">
+    <div class="cleanTop">
+      <button class="backBtn" onclick="home()">‹ Retour</button>
+      <button class="dotsBtn" onclick="toggleActions()">⋮</button>
     </div>
 
-    <div class="singlePremium">
+    <div class="cleanTitle">
+      <h1>${ex.name}</h1>
+      <p>${ex.muscles}</p>
+    </div>
+
+    <div class="cleanPremium">
       <img src="assets/premium/${ex.id}-full.png" alt="Fiche premium ${ex.name}" onerror="this.style.display='none'">
     </div>
 
     ${cardio?timerBlock():""}
 
-    <div class="series proSeries">
+    <div class="series cleanSeries">
+      <h2>Séries</h2>
       <div class="head"><span>Série</span><span>${cardio?"Temps":"Poids"}</span><span>${cardio?"RPE/m":"Reps"}</span><span>OK</span></div>
       ${ex.sets.map((s,i)=>row(ex,i,cardio)).join("")}
-      <button class="bigbtn compactBtn" onclick="addSet()">+ Série</button>
+      <button class="bigbtn compactBtn" onclick="addSet()">+ Ajouter une série</button>
     </div>
 
-    <details class="card foldedInfo">
+    <details class="cleanFold">
       <summary>Infos & conseils</summary>
-      <p><b>Objectif :</b> ${ex.target}</p>
-      <p><b>Muscles :</b> ${ex.muscles}</p>
-      <p><b>Machine :</b> départ / arrivée visibles dans la fiche.</p>
-      <p><b>Anatomie :</b> muscles principaux visibles dans la fiche.</p>
+      <p>Garde le dos bien plaqué contre le dossier.</p>
+      <p>Contrôle le mouvement et marque la contraction en fin de poussée.</p>
     </details>
+
+    <details class="cleanFold">
+      <summary>Réglages machine</summary>
+      <p>Poignées au niveau du milieu des pectoraux. Coudes légèrement fléchis.</p>
+    </details>
+
+    <details class="cleanFold">
+      <summary>Erreurs fréquentes</summary>
+      <p>Ne verrouille pas les coudes. Ne cambre pas exagérément le dos.</p>
+    </details>
+
+    <details class="cleanFold">
+      <summary>Vidéo</summary>
+      <p class="small">Vidéo à ajouter plus tard.</p>
+    </details>
+
+    <div id="actionsMenu" class="actionsMenu">
+      <button onclick="showAdd()">Ajouter exercice</button>
+      <button class="danger" onclick="deleteExercise()">Supprimer exercice</button>
+      <button onclick="exercise()">Fermer</button>
+    </div>
   </section>
+
   <div class="nav nav5">
-    <button onclick="home()">Menu</button>
+    <button onclick="home()">☰ Menu</button>
     <button onclick="prev()">← Préc.</button>
-    <button onclick="exercise()">Modifier</button>
+    <button disabled>${active+1} / ${state.session.length}<br>Exercice</button>
     <button onclick="next()">Suiv. →</button>
-    <button class="danger" onclick="deleteExercise()">Suppr.</button>
+    <button onclick="toggleActions()">⋯ Actions</button>
   </div>`);
+}
+
+function toggleActions(){
+  const el=document.getElementById("actionsMenu");
+  if(el) el.classList.toggle("on");
 }
 function row(ex,i,cardio){const s=ex.sets[i];return `<div class="row"><b>S${i+1}</b><input value="${cardio?s.reps:s.kg}" placeholder="${cardio?'durée':'kg'}" oninput="setVal(${i},'${cardio?'reps':'kg'}',this.value)"><input value="${cardio?s.kg:s.reps}" placeholder="${cardio?'RPE':'reps'}" oninput="setVal(${i},'${cardio?'kg':'reps'}',this.value)"><input type="checkbox" ${s.ok?'checked':''} onchange="setVal(${i},'ok',this.checked)"></div>`;}
 function statsBlock(ex){let volume=0,total=0,best="-";ex.sets.forEach(s=>{const kg=Number(String(s.kg).replace(",",".")), reps=Number(String(s.reps).replace(",","."));if(reps>0)total+=reps;if(kg>0&&reps>0){volume+=kg*reps;best=kg+"×"+reps;}});return `<div class="stats"><div><span>Meilleure</span><b>${best}</b></div><div><span>Volume</span><b>${volume?Math.round(volume)+" kg":"-"}</b></div><div><span>Reps</span><b>${total||"-"}</b></div></div>`;}
