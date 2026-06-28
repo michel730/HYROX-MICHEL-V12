@@ -371,3 +371,19 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
   .row,.head{grid-template-columns:34px 1fr 1fr 32px;gap:5px}
   input{font-size:15px;padding:9px 5px}
 }
+
+/* V13.1 — visuels premium sur tous les exercices */
+.v13Premium img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#06111f;
+}
+@media(max-width:420px){
+  .v13Premium{
+    margin-top:6px;
+  }
+  .v13Title h1{
+    font-size:23px;
+  }
+}
