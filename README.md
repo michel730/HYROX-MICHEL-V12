@@ -1,12 +1,11 @@
-# HYROX-Michel — Stable 1.3.2 Premium Simple
+# HYROX-Michel — Stable 1.3.3 Premium Large
 
 Correction demandée :
-- un seul visuel premium affiché ;
-- suppression des doublons Machine / Anatomie visibles ;
-- visuel principal plus lisible sur iPhone ;
-- séries directement sous la fiche ;
-- infos/conseils repliables ;
-- aucune page supprimée.
+- suppression des compteurs sous l'image ;
+- suppression du badge objectif en haut de la fiche exercice ;
+- visuel premium agrandi sur iPhone ;
+- séries directement sous le visuel ;
+- aucune page ni fonctionnalité retirée.
 
 Déploiement :
 Uploader tout le contenu dans HYROX-MICHEL-V12.
