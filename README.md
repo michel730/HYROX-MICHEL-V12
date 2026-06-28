@@ -1,11 +1,9 @@
-# HYROX-Michel — Stable 1.4 Page Exercice Clean
+# HYROX-Michel — Stable 1.4.1 Fiche sans doublon
 
 Correction :
-- suppression du doublon de séries ;
-- un seul visuel premium ;
-- un seul tableau de séries, connecté aux données ;
-- un seul bloc Infos & conseils ;
-- Actions déplacées dans un menu ;
+- le visuel premium ne contient plus le bas de fiche intégré ;
+- suppression du doublon séries / stats / infos dans l'image ;
+- la vraie zone séries de l'application reste la seule zone active ;
 - aucune page supprimée.
 
 Déploiement :

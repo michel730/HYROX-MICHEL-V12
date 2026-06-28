@@ -248,3 +248,22 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
   .row,.head{grid-template-columns:34px 1fr 1fr 32px;gap:5px}
   input{font-size:15px;padding:9px 5px}
 }
+
+/* Stable 1.4.1 — fiche visuelle sans doublon */
+.cleanPremium{
+  margin:8px 0 10px;
+  border:1px solid rgba(57,199,255,.45);
+}
+.cleanPremium img{
+  width:100%;
+  display:block;
+  object-fit:contain;
+}
+.cleanSeries{
+  margin-top:10px;
+}
+@media(max-width:420px){
+  .cleanTitle h1{font-size:23px}
+  .cleanPremium{border-radius:16px}
+  .cleanPremium img{border-radius:16px}
+}
