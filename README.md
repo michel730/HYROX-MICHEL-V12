@@ -1,11 +1,16 @@
-# HYROX Michel V12.1 — Navigation actions
+# HYROX-Michel — application stable
 
-Modification :
-- suppression du gros bouton rouge au milieu de la fiche ;
-- bouton **Supprimer** déplacé dans la barre de navigation du bas ;
-- bouton **Quitter** placé en petit bouton flottant en haut à droite ;
-- la fiche reste concentrée sur machine/anatomie/séries.
+Version officielle propre.
 
-Déploiement :
-Uploader tout le contenu dans le dépôt officiel.
-GitHub Pages : Deploy from a branch > main / root.
+Contenu :
+- Accueil
+- Check-list
+- Mode séance
+- Objectifs
+- Scores
+- Historique
+- Bilan hebdo
+- Images machine/anatomie incluses en PNG
+
+Déploiement GitHub Pages :
+Settings > Pages > Deploy from a branch > main / root.
