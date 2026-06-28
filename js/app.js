@@ -1,4 +1,4 @@
-const VERSION = "HYROX MICHEL — STABLE 1.1";
+const VERSION = "HYROX MICHEL — STABLE 1.2";
 const EXERCISES = [["dev-convergent", "Développé convergent", "4 × 8-10", "Pectoraux • triceps", "force"], ["dev-incline", "Développé incliné machine", "4 × 8-10", "Haut pectoraux • épaules", "force"], ["pec-deck", "Pec Deck / Butterfly", "4 × 10-12", "Pectoraux • deltoïdes", "force"], ["crunch", "Crunch machine", "4 × 12-15", "Grand droit abdominal", "force"], ["obliques", "Rotation obliques", "4 × 12-15", "Obliques • gainage", "force"], ["skierg", "SkiErg", "8-10 min", "Dos • abdos • cardio", "cardio"], ["rameur", "Rameur", "10 min", "Jambes • dos • cardio", "cardio"], ["tapis", "Tapis / Course", "20 min", "Cardio • jambes", "cardio"], ["tirage-vertical", "Tirage vertical", "4 × 8-10", "Dos • biceps", "force"], ["rowing-assis", "Rowing assis", "4 × 10", "Dos • rhomboïdes", "force"], ["leg-extension", "Leg Extension", "4 × 10-12", "Quadriceps", "force"], ["leg-curl", "Leg Curl", "4 × 10-12", "Ischios", "force"]];
 const DEFAULT = ["dev-convergent","dev-incline","pec-deck","crunch","obliques","skierg"];
 const CHECKLIST = ["Gourde remplie","Électrolytes","AirPods","Serviette","Chaussures / tennis","Apple Watch chargée","Téléphone chargé","Clés"];
@@ -58,13 +58,45 @@ function startSession(){ active=0; exercise(); }
 
 function exercise(){
   const ex=state.session[active]; if(!ex) return home(); const cardio=ex.type==="cardio";
-  html(`<section class="exercise"><div class="exercise-title"><div><h1>${ex.name}</h1><p>${ex.muscles}</p></div><div class="badge">${ex.target}</div></div>
-  <details class="imgbox"><summary>Machine / mouvement</summary><img src="assets/machines/${ex.id}.png" alt="Machine ${ex.name}"></details>
-  <details class="imgbox"><summary>Anatomie</summary><img src="assets/anatomie/${ex.id}.png" alt="Anatomie ${ex.name}"></details>
-  ${cardio?timerBlock():statsBlock(ex)}
-  <div class="series"><div class="head"><span>Série</span><span>${cardio?"Temps":"Poids"}</span><span>${cardio?"RPE/m":"Reps"}</span><span>OK</span></div>
-  ${ex.sets.map((s,i)=>row(ex,i,cardio)).join("")}<button class="bigbtn" onclick="addSet()">+ Série</button></div></section>
-  <div class="nav nav5"><button onclick="home()">Menu</button><button onclick="prev()">← Préc.</button><button onclick="exercise()">Modifier</button><button onclick="next()">Suiv. →</button><button class="danger" onclick="deleteExercise()">Suppr.</button></div>`);
+  html(`<section class="exercise proExercise">
+    <div class="exercise-title proTitle">
+      <div><h1>${ex.name}</h1><p>${ex.muscles}</p></div>
+      <div class="badge">${ex.target}</div>
+    </div>
+
+    <div class="proGrid">
+      <details class="imgbox proImg" open>
+        <summary>Machine</summary>
+        <img src="assets/machines/${ex.id}.png" alt="Machine ${ex.name}">
+      </details>
+      <details class="imgbox proImg" open>
+        <summary>Anatomie</summary>
+        <img src="assets/anatomie/${ex.id}.png" alt="Anatomie ${ex.name}">
+      </details>
+    </div>
+
+    ${cardio?timerBlock():statsBlock(ex)}
+
+    <div class="series proSeries">
+      <div class="head"><span>Série</span><span>${cardio?"Temps":"Poids"}</span><span>${cardio?"RPE/m":"Reps"}</span><span>OK</span></div>
+      ${ex.sets.map((s,i)=>row(ex,i,cardio)).join("")}
+      <button class="bigbtn compactBtn" onclick="addSet()">+ Série</button>
+    </div>
+
+    <details class="card foldedInfo">
+      <summary>Infos & conseils</summary>
+      <p><b>Objectif :</b> ${ex.target}</p>
+      <p><b>Muscles :</b> ${ex.muscles}</p>
+      <p class="small">Réglages, erreurs fréquentes et vidéo seront ajoutés dans cette fiche sans changer la page séance.</p>
+    </details>
+  </section>
+  <div class="nav nav5">
+    <button onclick="home()">Menu</button>
+    <button onclick="prev()">← Préc.</button>
+    <button onclick="exercise()">Modifier</button>
+    <button onclick="next()">Suiv. →</button>
+    <button class="danger" onclick="deleteExercise()">Suppr.</button>
+  </div>`);
 }
 function row(ex,i,cardio){const s=ex.sets[i];return `<div class="row"><b>S${i+1}</b><input value="${cardio?s.reps:s.kg}" placeholder="${cardio?'durée':'kg'}" oninput="setVal(${i},'${cardio?'reps':'kg'}',this.value)"><input value="${cardio?s.kg:s.reps}" placeholder="${cardio?'RPE':'reps'}" oninput="setVal(${i},'${cardio?'kg':'reps'}',this.value)"><input type="checkbox" ${s.ok?'checked':''} onchange="setVal(${i},'ok',this.checked)"></div>`;}
 function statsBlock(ex){let volume=0,total=0,best="-";ex.sets.forEach(s=>{const kg=Number(String(s.kg).replace(",",".")), reps=Number(String(s.reps).replace(",","."));if(reps>0)total+=reps;if(kg>0&&reps>0){volume+=kg*reps;best=kg+"×"+reps;}});return `<div class="stats"><div><span>Meilleure</span><b>${best}</b></div><div><span>Volume</span><b>${volume?Math.round(volume)+" kg":"-"}</b></div><div><span>Reps</span><b>${total||"-"}</b></div></div>`;}

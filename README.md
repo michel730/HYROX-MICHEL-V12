@@ -1,18 +1,8 @@
-# HYROX-Michel — Stable 1.1
+# HYROX-Michel — Stable 1.2 Page Exercice PRO
 
-Mise à jour sans retrait de fonctionnalités.
+Mise à jour sans suppression de fonctionnalités.
 
-Ajouts :
-- bouton **Menu** dans la navigation basse de la page séance ;
-- schémas machine + anatomie renforcés pour la séance du jour :
-  - Développé convergent
-  - Développé incliné machine
-  - Pec Deck / Butterfly
-  - Crunch machine
-  - Rotation obliques
-  - SkiErg
-
-Pages présentes :
+Conservé :
 - Jour
 - Objectifs
 - Scores
@@ -20,6 +10,24 @@ Pages présentes :
 - Bilan hebdo
 - Check-list
 - Mode séance
+- Ajout/suppression exercice
+- Séries
+- Chrono cardio
+
+Ajout / amélioration :
+- bouton Menu en bas sur la page séance ;
+- page Exercice reconstruite façon V9 :
+  - schéma Machine ;
+  - schéma Anatomie ;
+  - séries visibles ;
+  - infos/conseils repliables ;
+- schémas machine/anatomie retravaillés pour la séance du jour :
+  - Développé convergent
+  - Développé incliné machine
+  - Pec Deck / Butterfly
+  - Crunch machine
+  - Rotation obliques
+  - SkiErg
 
 Déploiement :
 Uploader tout le contenu dans le dépôt officiel HYROX-Michel.

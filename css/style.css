@@ -27,3 +27,27 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
   .nav5{gap:4px;padding:7px 5px}
   .nav5 button{font-size:10px;padding:11px 2px}
 }
+
+/* Stable 1.2 — page exercice PRO iPhone */
+.proExercise{padding:12px;margin:8px 0 70px}
+.proTitle h1{font-size:28px}
+.proTitle p{font-size:14px;margin:4px 0}
+.proGrid{display:grid;grid-template-columns:1fr;gap:8px;margin:10px 0}
+.proImg{margin:0}
+.proImg summary{padding:8px 10px;font-size:12px}
+.proImg img{margin-top:4px}
+.proSeries{margin-top:8px}
+.compactBtn{padding:12px;font-size:16px}
+.foldedInfo{padding:10px;margin:10px 0;background:#07172a}
+.foldedInfo summary{color:var(--accent);font-weight:900;cursor:pointer}
+.nav5{grid-template-columns:1fr 1fr 1fr 1fr 1fr}
+.nav5 button{font-size:10.5px;padding:11px 2px}
+@media(max-width:420px){
+  #app{padding-left:8px;padding-right:8px}
+  .exercise-title{gap:8px}
+  .badge{font-size:12px;padding:7px 9px}
+  .imgbox{border-radius:16px;padding:5px}
+  .row,.head{grid-template-columns:36px 1fr 1fr 34px;gap:5px}
+  input{font-size:16px;padding:10px 6px}
+  .stats div{padding:7px 5px}
+}
