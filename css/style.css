@@ -103,3 +103,39 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
   .premiumHero img{max-height:54vh}
   .imgbox img{max-height:42vh}
 }
+
+/* Stable 1.3.2 — un seul visuel premium lisible */
+.singlePremium{
+  margin:10px 0 12px;
+  border:1px solid rgba(57,199,255,.34);
+  background:#06111f;
+  border-radius:22px;
+  overflow:hidden;
+}
+.singlePremium img{
+  display:block;
+  width:100%;
+  max-height:none;
+  object-fit:contain;
+  border-radius:22px;
+}
+.proGrid{display:none!important}
+.premiumHero{display:none!important}
+.proExercise{padding:12px;margin:8px 0 70px}
+.proTitle h1{font-size:26px}
+.proTitle p{font-size:14px;margin:4px 0}
+.proSeries{margin-top:8px}
+.compactBtn{padding:12px;font-size:16px}
+.foldedInfo{padding:10px;margin:10px 0;background:#07172a}
+.foldedInfo summary{color:var(--accent);font-weight:900;cursor:pointer}
+.nav5{grid-template-columns:1fr 1fr 1fr 1fr 1fr}
+.nav5 button{font-size:10.5px;padding:11px 2px}
+@media(max-width:420px){
+  #app{padding-left:8px;padding-right:8px}
+  .singlePremium{border-radius:18px;margin-top:8px}
+  .singlePremium img{border-radius:18px}
+  .exercise-title{gap:8px}
+  .badge{font-size:12px;padding:7px 9px}
+  .row,.head{grid-template-columns:36px 1fr 1fr 34px;gap:5px}
+  input{font-size:16px;padding:10px 6px}
+}

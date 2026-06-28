@@ -1,11 +1,12 @@
-# HYROX-Michel — Stable 1.3.1 Premium Light
+# HYROX-Michel — Stable 1.3.2 Premium Simple
 
-Correction :
-- version 1.3 allégée pour iPhone ;
-- images compressées ;
-- chargement lazy des images secondaires ;
-- conservation de toutes les pages et fonctions ;
-- conservation de la présentation premium.
+Correction demandée :
+- un seul visuel premium affiché ;
+- suppression des doublons Machine / Anatomie visibles ;
+- visuel principal plus lisible sur iPhone ;
+- séries directement sous la fiche ;
+- infos/conseils repliables ;
+- aucune page supprimée.
 
 Déploiement :
 Uploader tout le contenu dans HYROX-MICHEL-V12.
