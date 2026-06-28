@@ -18,3 +18,12 @@ input,select{width:100%;border:1px solid #22405f;border-radius:14px;background:#
 .timer{font-size:52px;text-align:center;font-weight:900;letter-spacing:.04em}.checkitem{display:flex;align-items:center;gap:12px;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:12px;margin:8px 0;font-weight:800}.checkitem input{flex:0 0 auto}.addgrid{display:grid;gap:8px}.small{font-size:14px;color:var(--muted)}
 .footerNav{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:8px;background:rgba(6,17,31,.97);border-top:1px solid var(--line)}.footerNav button{border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--txt);padding:10px 2px;font-size:11px;font-weight:900}.footerNav .active{background:#12355d}
 @media(min-width:700px){.addgrid{grid-template-columns:2fr 1fr 1fr}}
+
+/* Stable 1.1 */
+.nav5{grid-template-columns:1fr 1fr 1fr 1fr 1fr}
+.nav5 button{font-size:11px}
+.imgbox img{background:#06111f}
+@media(max-width:420px){
+  .nav5{gap:4px;padding:7px 5px}
+  .nav5 button{font-size:10px;padding:11px 2px}
+}

@@ -1,16 +1,26 @@
-# HYROX-Michel — application stable
+# HYROX-Michel — Stable 1.1
 
-Version officielle propre.
+Mise à jour sans retrait de fonctionnalités.
 
-Contenu :
-- Accueil
-- Check-list
-- Mode séance
+Ajouts :
+- bouton **Menu** dans la navigation basse de la page séance ;
+- schémas machine + anatomie renforcés pour la séance du jour :
+  - Développé convergent
+  - Développé incliné machine
+  - Pec Deck / Butterfly
+  - Crunch machine
+  - Rotation obliques
+  - SkiErg
+
+Pages présentes :
+- Jour
 - Objectifs
 - Scores
 - Historique
 - Bilan hebdo
-- Images machine/anatomie incluses en PNG
+- Check-list
+- Mode séance
 
-Déploiement GitHub Pages :
-Settings > Pages > Deploy from a branch > main / root.
+Déploiement :
+Uploader tout le contenu dans le dépôt officiel HYROX-Michel.
+GitHub Pages : Deploy from a branch > main / root.
